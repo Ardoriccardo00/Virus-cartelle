@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace Programma
@@ -30,18 +31,41 @@ namespace Programma
             Console.WriteLine("Altro tasto: Esci                  #");
             Console.WriteLine("####################################");
 
+
             string line = Console.ReadLine();
             int Scelta = int.Parse(line);
 
             if (Scelta == 1) {
 
-                Radice = (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
-                percorsoDesktop = Radice + "/Desktop";
-                percorsoDocumenti = Radice + "/Documenti";
-                percorsoImmagini = Radice + "/Immagini";
-                percorsoMusica = Radice + "/Music";
-                percorsoDownloads = Radice + "/Downloads";
-                percorsoVideo = Radice + "/Videos";
+                Console.WriteLine("");
+                Console.WriteLine("Stai usando una versione di Windows in italiano o in inglese?");
+                Console.WriteLine("1: italiano");
+                Console.WriteLine("2: inglese");
+
+                string lineLingua = Console.ReadLine();
+                int SceltaLingua = int.Parse(lineLingua);
+
+                if (SceltaLingua == 1)
+                {
+                    Radice = (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
+                    percorsoDesktop = Radice + "/Desktop";
+                    percorsoDocumenti = Radice + "/Documenti";
+                    percorsoImmagini = Radice + "/Immagini";
+                    percorsoMusica = Radice + "/Musica";
+                    percorsoDownloads = Radice + "/Downloads";
+                    percorsoVideo = Radice + "/Video";
+                }
+
+                else if (SceltaLingua == 2)
+                {
+                    Radice = (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
+                    percorsoDesktop = Radice + "/Desktop";
+                    percorsoDocumenti = Radice + "/Documents";
+                    percorsoImmagini = Radice + "/Pictures";
+                    percorsoMusica = Radice + "/Music";
+                    percorsoDownloads = Radice + "/Downloads";
+                    percorsoVideo = Radice + "/Videos";
+                }
 
                 Console.WriteLine(Radice);
                 Console.WriteLine(percorsoDesktop);
